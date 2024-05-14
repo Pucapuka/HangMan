@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico</title>
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: pink;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Histórico</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Jogador</th>
+                <th>Palavra</th>
+                <th>Tentativas</th>
+                <th>Venceu</th>
+            </tr>
+        </thead>
+        <tbody id="lista-historico">
+            <!-- Dados do histórico serão inseridos aqui via JavaScript -->
+        </tbody>
+    </table>
+    <button onclick="retornarMenu()">Voltar ao Menu</button>
+    <script src="script.js"></script>
+</body>
+</html>

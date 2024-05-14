@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+#game-container {
+    margin-bottom: 20px;
+}
+
+#word-display {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#message {
+    margin-bottom: 10px;
+}
+
+#guess-input {
+    margin-right: 10px;
+}
+
+#history-container {
+    border-top: 2px solid #333;
+    padding-top: 20px;
+}
+
+#history-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#history-list li {
+    margin-bottom: 5px;
+}
