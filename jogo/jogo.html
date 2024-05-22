@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo</title>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../styles.css" rel="stylesheet">
     <style>
         body {
             background-color: pink;
+        }
+        #display-palavra span {
+            border-bottom: 2px solid #000;
+            padding: 0 5px;
         }
     </style>
 </head>
@@ -16,8 +20,10 @@
     <p id="display-palavra"></p>
     <p id="mensagem"></p>
     <input type="text" id="entrada-letra" maxlength="1">
+    <br>
     <button id="botao-tentar">Tentar</button>
-    <button id="botao-sair">Sair</button>
-    <script src="script.js"></script>
+    <br>
+    <button classe='botao' id="retorna-menu" >Retornar Menu</button>
+    <script src="jogo.js"></script>
 </body>
 </html>

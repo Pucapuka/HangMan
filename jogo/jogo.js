@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const mensagem = document.getElementById('mensagem');
     const entradaLetra = document.getElementById('entrada-letra');
     const botaoTentar = document.getElementById('botao-tentar');
-    const tabelaHistorico = document.getElementById('tabela-historico');
     const listaHistorico = document.getElementById('lista-historico');
+    let nomeJogador;
+    const botaoRetornarMenu = document.getElementById('retorna-menu');
 
     let palavra;
     let letrasDescobertas = new Set();
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const maxTentativas = 6;
 
     function iniciarJogo() {
+        nomeJogador = prompt('Qual é o seu nome?');
         palavra = PALAVRAS[Math.floor(Math.random() * PALAVRAS.length)];
         letrasDescobertas.clear();
         letrasTentadas.clear();
@@ -60,11 +62,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function finalizarJogo(vitoria) {
         const mensagemResultado = vitoria ? 'Você ganhou!' : `Você perdeu! A palavra era: ${palavra}`;
         exibirMensagem(mensagemResultado, vitoria);
-        salvarHistorico('Jogador', palavra, tentativas, vitoria);
+        salvarHistorico(nomeJogador, palavra, tentativas, vitoria);
         iniciarJogo();
     }
 
-    botaoTentar.addEventListener('click', function() {
+    function tentarLetra() {
         const letra = entradaLetra.value.trim().toLowerCase();
         if (letra && letra.length === 1 && !letrasTentadas.has(letra)) {
             letrasTentadas.add(letra);
@@ -82,14 +84,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         entradaLetra.value = '';
         entradaLetra.focus();
+    }
+
+    botaoTentar.addEventListener('click', tentarLetra);
+
+    entradaLetra.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            tentarLetra();
+        }
     });
+
+    if (botaoRetornarMenu) {
+        botaoRetornarMenu.addEventListener('click', function() {
+            window.location.href = 'C:/Users/lilin/.vscode/IFMA/EngenhariaDeSoftware/web/HangMan/menu/menu.html'; // Volta ao menu principal
+        });
+    }
 
     iniciarJogo();
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const botaoSair = document.getElementById('botao-sair');
-    botaoSair.addEventListener('click', function() {
-        window.close(); // Fecha a janela atual quando o botão Sair é clicado
-    });
 });
