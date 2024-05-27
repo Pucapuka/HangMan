@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (botaoRetornarMenu) {
         botaoRetornarMenu.addEventListener('click', function() {
-            window.location.href = 'C:/Users/lilin/.vscode/IFMA/EngenhariaDeSoftware/web/HangMan/menu/menu.html'; // Volta ao menu principal
+            window.location.href = '../menu/menu.html'; // Volta ao menu principal
         });
     }
 

@@ -4,16 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo</title>
-    <link href="../styles.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: pink;
-        }
-        #display-palavra span {
-            border-bottom: 2px solid #000;
-            padding: 0 5px;
-        }
-    </style>
+    <link href="./jogo.css" rel="stylesheet">
 </head>
 <body>
     <h1>Jogo da Forca</h1>
@@ -21,9 +12,12 @@
     <p id="mensagem"></p>
     <input type="text" id="entrada-letra" maxlength="1">
     <br>
-    <button id="botao-tentar">Tentar</button>
+    <button class='botao' id="botao-tentar">Tentar</button>
     <br>
-    <button classe='botao' id="retorna-menu" >Retornar Menu</button>
+    <p>Letras Tentadas: <span id="letras-tentadas"></span></p>
+    <br>
+    <button class='botao' id="retorna-menu">Retornar ao Menu</button>
+    <img id="imagem-forca" src="../img/hangman1.jpg" alt="Imagem da Forca">
     <script src="jogo.js"></script>
 </body>
 </html>
