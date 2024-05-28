@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
         letrasTentadas.clear();
         tentativas = 0;
         mensagem.textContent = '';
+        entradaLetra.style.display = 'inline';
+        botaoTentar.style.display = 'inline';
         atualizarDisplay();
         atualizarLetrasTentadas();
         atualizarImagemForca();
@@ -53,7 +55,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function atualizarImagemForca() {
         const imgIndex = maxTentativas - tentativas;
-        imagemForca.src = `../img/hangman${imgIndex}.jpg`;
+        if(verificarVitoria()){
+            return imagemForca.src = '../img/hangman-survive.jpg';
+        }else{
+            return imagemForca.src = `../img/hangman${imgIndex}.jpg`;
+        }
     }
 
     function verificarVitoria() {
@@ -69,6 +75,12 @@ document.addEventListener('DOMContentLoaded', function() {
         mensagemResultado.textContent = msg;
         mensagemResultado.classList.add(vitoria ? 'vitoria' : 'derrota');
         mensagem.appendChild(mensagemResultado);
+
+        const botaoReiniciar = document.createElement('button');
+        botaoReiniciar.textContent = 'Tentar novamente';
+        botaoReiniciar.classList.add('botao');
+        botaoReiniciar.addEventListener('click', reiniciarJogo);
+        mensagem.appendChild(botaoReiniciar);
     }
 
     function salvarHistorico(nomeJogador, palavra, tentativas, venceu) {
@@ -82,17 +94,11 @@ document.addEventListener('DOMContentLoaded', function() {
         exibirMensagem(mensagemResultado, vitoria);
         salvarHistorico(nomeJogador, palavra, tentativas, vitoria);
 
-        // Desabilitar entrada e botões
+        // Desabilitar e esconder entrada e botões
         entradaLetra.disabled = true;
         botaoTentar.disabled = true;
-
-        if (!vitoria) {
-            const botaoReiniciar = document.createElement('button');
-            botaoReiniciar.textContent = 'Tentar novamente';
-            botaoReiniciar.classList.add('botao');
-            botaoReiniciar.addEventListener('click', reiniciarJogo);
-            mensagem.appendChild(botaoReiniciar);
-        }
+        entradaLetra.style.display = 'none';
+        botaoTentar.style.display = 'none';
     }
 
     function reiniciarJogo() {

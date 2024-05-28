@@ -38,10 +38,22 @@ h1 {
 }
 #imagem-forca {
     position: absolute;
-    right: 150px;
+    margin-top: 250px;
+    right: 10px;
     top: 50%;
     transform: translateY(-90%);
-    width: 20vw;
+    width: 600px;
+    height: 400px;
+}
+
+.corpo{
+    display: flex;
+    flex-direction: column;
+    margin-right: 500px;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    height: 400px;
 }
 .botao{
     background-color:#3a0066 ;
