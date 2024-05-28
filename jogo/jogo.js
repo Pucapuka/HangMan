@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const letra = entradaLetra.value.trim().toLowerCase();
         
         // Verifica se a entrada é uma letra válida
-        if (!/^[a-z]$/.test(letra)) {
+        if (!/^[a-zA-ZÀ-úçÇãõÃÕ]+$/.test(letra)) {
             mensagem.textContent = 'Por favor, insira apenas letras.';
             entradaLetra.value = '';
             entradaLetra.focus();
